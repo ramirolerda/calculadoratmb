@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <title>Ramiro Lerda</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js"></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Calcular calorías diarias</h1>
+      <p>
+        El cuerpo necesita consumir una cantidad minima de Kcal todos los dias
+        para poder recalizar sus funciones
+      </p>
+      <p>
+        La tasa metabólica basal (TMB) es la cantidad mínima de energía que
+        necesita tu cuerpo para sobrevivir realizando las funciones básicas,
+        tales como respirar, parpadear, filtrar la sangre, regular la
+        temperatura del cuerpo o sintetizar hormonas.
+      </p>
+      <article>
+        <form id="form">
+          <div class="grid">
+            <div>
+              <fieldset>
+                <legend>Sos un/a...</legend>
+                <label for="small">
+                  <input
+                    type="radio"
+                    id="m"
+                    name="sex"
+                    value="m"
+                    checked
+                    required
+                  />
+                  Hombre
+                </label>
+                <label for="medium">
+                  <input type="radio" id="f" name="sex" value="f" />
+                  Mujer
+                </label>
+              </fieldset>
+            </div>
+            <div>
+              <fieldset>
+                <legend>¿Haces actividad fisica?</legend>
+                <label for="0">
+                  <input
+                    type="radio"
+                    id="0"
+                    name="activity"
+                    value="0"
+                    checked
+                  />
+                  Soy Programador
+                </label>
+                <label for="1">
+                  <input type="radio" id="1" name="activity" value="1" />
+                  Muy poco
+                </label>
+                <label for="2">
+                  <input type="radio" id="2" name="activity" value="2" />
+                  Algo
+                </label>
+                <label for="3">
+                  <input type="radio" id="3" name="activity" value="3" />
+                  Soy un Runner de CABA
+                </label>
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="grid">
+            <div>
+              <label for="age">
+                Edad
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="25"
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label for="height">
+                Altura
+                <input
+                  type="number"
+                  id="height"
+                  name="height"
+                  placeholder="180cm"
+                  required
+                />
+              </label>
+            </div>
+            <div>
+              <label for="weight">
+                Peso
+                <input
+                  type="number"
+                  id="weight"
+                  name="weight"
+                  placeholder="80kg"
+                  required
+                />
+              </label>
+            </div>
+          </div>
+          <button type="submit">Calcular</button>
+        </form>
+      </article>
+      <article id="results">
+        <div class="grid">
+          <div class="nutria">
+            <img src="./assets/img/nutricionista.png" alt="Dra. Nutria" />
+          </div>
+          <div>
+            <p id="imc"></p>
+            <p>Tu tasa metabólica basal es <span class="strong" id="tmb"></span> Kcal.</p>
+            <p>
+              Deberias consumir diariamente <span class="strong" id="kcal"></span> Kcal para
+              mantener tu peso actual.
+            </p>
+          </div>
+        </div>
+      </article>
+      <article>
+        <p>
+          Recorda siempre consultar con un profecional, estos valores son solo a
+          modo de referencia.
+        </p>
+        <p>
+          Para poder realizar estos calculos utilizamos la formula de
+          <span class="strong">Harris Benedict</span> descrita en 1919, revisada por
+          Mifflin y St Jeor en 1990
+        </p>
+        Mujeres:
+        <pre>
+(655 + (9,6 x peso en kg) + (1,8 x altura en cm) - (4,7 x edad)) x Factor actividad</pre
+        >
+        Hombres:
+        <pre>
+(66 + (13,7 x peso en kg) + (5 x altura en cm) - (6,8 x edad)) x Factor actividad</pre
+        >
+        <p>Teniendo en cuenta que el factor de actividad es:</p>
+        <ul>
+          <li>1,2 para personas sedentarias</li>
+          <li>
+            1,375 para personas con poca actividad física (ejercicio de 1 a 3
+            veces por semana).
+          </li>
+          <li>
+            1,55 para individuos que realizan actividad moderada (ejercicio de 3
+            a 5 veces por semana).
+          </li>
+          <li>
+            1,725 para personas que hacen actividad intensa (ejercicio de 6 a 7
+            veces por semana).
+          </li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
